@@ -4,7 +4,7 @@ require_once "../includes/auth_check.php";
 if ($_SESSION['role_id'] != 1) die("Access denied!");
 
 require_once "../config/database.php";
-
+include "../includes/header.php"; // include header + navbar
 // Fetch all bookings with room & food
 $bookings = $pdo->query("
 SELECT b.id AS booking_id, b.guest_name, b.room_id, r.room_number, r.type AS room_type, b.total_price AS room_price,
@@ -38,3 +38,4 @@ ORDER BY b.id DESC
 </tr>
 <?php endforeach; ?>
 </table>
+<?php include "../includes/footer.php"; ?>
