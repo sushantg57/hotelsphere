@@ -16,6 +16,11 @@
             font-family: 'Roboto', sans-serif;
             overflow-x: hidden;
         }
+        /* Navbar */
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+        }
         /* Hero Section */
         .hero {
             background: url('assets/images/hero-bg.jpg') center/cover no-repeat;
@@ -48,8 +53,11 @@
         .btn-hero {
             padding: 15px 35px;
             font-size: 1.2rem;
+            transition: transform 0.3s;
         }
-
+        .btn-hero:hover {
+            transform: scale(1.1);
+        }
         /* Features Section */
         .features {
             padding: 100px 0;
@@ -59,13 +67,12 @@
             padding: 30px;
             border-radius: 15px;
             background: white;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .feature-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
-
         /* Footer */
         footer {
             background: #222;
@@ -80,12 +87,31 @@
 </head>
 <body>
 
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.php">HotelSphere</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin_login.php">Admin Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <!-- Hero Section -->
 <section class="hero">
     <div class="hero-content animate__animated animate__fadeInDown">
         <h1>Welcome to HotelSphere</h1>
         <p>Your ultimate luxury hotel experience</p>
-        <a href="#features" class="btn btn-primary btn-hero">Explore Now</a>
+        <div class="mt-4">
+            <a href="#features" class="btn btn-primary btn-hero me-2">Explore Now</a>
+            <a href="admin_login.php" class="btn btn-outline-light btn-hero">Admin Login</a>
+        </div>
     </div>
 </section>
 
@@ -122,7 +148,7 @@
                 <div class="feature-card text-center">
                     <img src="assets/images/spa.png" alt="Spa" class="mb-3" width="80">
                     <h4>Relaxing Spa</h4>
-                    <p>Pamper yourself with our spa and wellness.</p>
+                    <p>Pamper yourself with our spa and wellness services.</p>
                 </div>
             </div>
         </div>
