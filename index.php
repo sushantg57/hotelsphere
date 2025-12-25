@@ -110,7 +110,7 @@
         <p>Your ultimate luxury hotel experience</p>
         <div class="mt-4">
             <a href="#features" class="btn btn-primary btn-hero me-2">Explore Now</a>
-            <a href="admin_login.php" class="btn btn-outline-light btn-hero">Admin Login</a>
+            <a href="auth/login.php" class="btn btn-outline-light btn-hero">Admin Login</a>
         </div>
     </div>
 </section>
@@ -182,3 +182,4 @@
 </script>
 </body>
 </html>
+
