@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once "../config/database.php";
-include "../includes/header.php"; // include header + navbar
 $error = "";
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
@@ -58,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 <?php if ($error): ?>
     <p style="color:red;"><?php echo $error; ?></p>
 <?php endif; ?>
-<?php include "../includes/footer.php"; ?>
+
 <form method="POST">
     <label>Email</label><br>
     <input type="email" name="email" required><br><br>
@@ -71,4 +70,5 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 </body>
 </html>
+
 
