@@ -6,7 +6,7 @@ if ($_SESSION['role_id'] != 1) {
 }
 
 require_once "../config/database.php";
-
+include "../includes/header.php"; // include header + navbar
 // Add new room
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $room_number = $_POST['room_number'];
@@ -56,3 +56,4 @@ $rooms = $pdo->query("SELECT * FROM rooms ORDER BY id DESC")->fetchAll();
     </tr>
     <?php endforeach; ?>
 </table>
+<?php include "../includes/footer.php"; ?>
