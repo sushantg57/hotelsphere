@@ -1,6 +1,8 @@
 <?php
 require_once "../includes/auth_check.php";
 
+include "../includes/header.php";
+
 if ($_SESSION['role_id'] != 2) {
     die("Access denied!");
 }
@@ -44,28 +46,24 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 }
 ?>
 
-<h1>Book a Room</h1>
-<?php if(isset($message)) echo "<p style='color:green;'>$message</p>"; ?>
+<h1 class="mb-4">Book a Room</h1>
 
-<form method="POST">
-    <label>Guest Name</label>
-    <input type="text" name="guest_name" required><br>
-
-    <label>Guest Email</label>
-    <input type="email" name="guest_email" required><br>
-
-    <label>Room</label>
-    <select name="room_id" required>
-        <?php foreach($rooms as $r): ?>
-        <option value="<?php echo $r['id']; ?>"><?php echo $r['room_number'].' ('.$r['type'].')'; ?></option>
-        <?php endforeach; ?>
-    </select><br>
-
-    <label>Check-In</label>
-    <input type="date" name="check_in" required><br>
-
-    <label>Check-Out</label>
-    <input type="date" name="check_out" required><br>
-
-    <button type="submit">Book Room</button>
+<div class="card p-4 mb-4">
+<form method="post" action="book_room_submit.php">
+<div class="mb-3">
+<label for="guest_name" class="form-label">Guest Name</label>
+<input type="text" class="form-control" id="guest_name" name="guest_name" required>
+</div>
+<div class="mb-3">
+<label for="room_id" class="form-label">Select Room</label>
+<select class="form-select" id="room_id" name="room_id" required>
+<option value="">-- Select Room --</option>
+<?php foreach($availableRooms as $room): ?>
+<option value="<?= $room['id'] ?>"><?= $room['room_number'].' ('.$room['type'].')' ?></option>
+<?php endforeach; ?>
+</select>
+</div>
+<button type="submit" class="btn btn-primary w-100">Book Room</button>
 </form>
+</div>
+<?php include "../includes/footer.php"; ?>
