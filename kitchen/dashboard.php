@@ -1,6 +1,6 @@
 <?php
 require_once "../includes/auth_check.php";
-
+include "../includes/header.php"; // include header + navbar
 if ($_SESSION['role_id'] != 3) {
     die("Access denied!");
 }
@@ -10,3 +10,5 @@ if ($_SESSION['role_id'] != 3) {
 <p>Welcome, <?php echo $_SESSION['name']; ?>!</p>
 
 <p><a href="../auth/logout.php">Logout</a></p>
+
+<?php include "../includes/footer.php"; ?>
