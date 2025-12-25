@@ -1,7 +1,7 @@
 <?php
 require_once "../includes/auth_check.php";
 require_once "../config/database.php";
-
+include "../includes/header.php"; // include header + navbar
 // Only admin
 if ($_SESSION['role_id'] != 1) die("Access denied!");
 
@@ -21,3 +21,4 @@ $total_bookings = $pdo->query("SELECT COUNT(*) FROM bookings")->fetchColumn();
 <p>Booked Rooms: <?php echo $booked_rooms; ?></p>
 <p>Total Bookings: <?php echo $total_bookings; ?></p>
 <p><a href="../auth/logout.php">Logout</a></p>
+<?php include "../includes/footer.php"; ?>
